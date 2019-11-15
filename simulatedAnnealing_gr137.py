@@ -27,12 +27,12 @@ def veri_oku(p,X,Y):
 
 
 def simulatedAnnealing(p,x,y,ITER_MAX):
-    N = len(xmutlak)
+    N = len(x)
     def objFunc(p):
         cost = 0
         for i in range(0,N-1):
-            xd = xmutlak[p[i]] - xmutlak[p[i+1]]
-            yd =ymutlak[p[i]] - ymutlak[p[i+1]]
+            xd = x[p[i]] - x[p[i+1]]
+            yd =y[p[i]] - y[p[i+1]]
             dxy = math.sqrt(xd * xd + yd *yd)
             cost = cost + dxy
         return cost
@@ -94,10 +94,8 @@ p,x,y=veri_oku(p,x,y)
 #mutlak değere alma
 xarray=np.asarray(x)
 yarray=np.asarray(y)
-xmutlak=abs(xarray)
-ymutlak=abs(yarray)
-#verileri negatiften pozitife çekme
-#x_sayimutlakyap=xarray+60
-#y_sayimutlakyap=yarray+200
-print(xmutlak,ymutlak,p)
-simulatedAnnealing(p,xmutlak,ymutlak,1000)
+#xmutlak=abs(xarray)
+#ymutlak=abs(yarray)
+
+print(x,y,p)
+simulatedAnnealing(p,x,y,1000)
